@@ -4,19 +4,46 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { HomeDevicePage } from '../pages/home-device/home-device';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any;
+  public static isWeb: boolean = false; //Dieu khien thiet bi
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
-    });
+  constructor(private platform: Platform, 
+              private statusBar: StatusBar, 
+              private splashScreen: SplashScreen) {
+    
   }
+
+  ngOnInit() {
+
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+      if (  this.platform.is('mobileweb') 
+         || this.platform.platforms()[0] == 'core'){
+        //version web Chay tren web
+        MyApp.isWeb = true;
+      }
+      console.log('MyAPP ngOnInit() Platform: ', this.platform.platforms())
+      this.ionViewDidLoad();
+    });
+    
+  }
+  
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad() ')
+    if (MyApp.isWeb) this.rootPage = HomePage; else this.rootPage=HomeDevicePage;
+  }
+  
+  ionViewWillLeave() {
+    console.log('ionViewWillLeave() ')
+    
+  }
+
+
 }
 
