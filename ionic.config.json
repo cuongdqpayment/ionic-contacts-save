@@ -1,0 +1,7 @@
+{
+  "name": "ionic-contacts-save",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
