@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      CONTACTS PAGE
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button (click)="createContact()">Create Contacts</button>
+  <button ion-button (click)="pickContacts()">Pick Contacts</button>
+  <button ion-button (click)="listContacts()">List Contacts</button>
+  <ion-list>
+    <button ion-item *ngFor="let contact of phoneContacts">
+      <ion-avatar item-start>
+        <img src="{{contact.photos?contact.photos[0].value:image_default}}">
+      </ion-avatar>
+      <h2>{{contact.displayName?contact.displayName:'Khong co ten'}}</h2>
+      <p>{{contact.phoneNumbers?contact.phoneNumbers[0].value:'...'}}</p>
+      <ion-note>{{contact.urls?contact.urls[0].value:'#'}}</ion-note>
+    </button>
+  </ion-list>
+</ion-content>

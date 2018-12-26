@@ -7,6 +7,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { HomeDevicePage } from '../pages/home-device/home-device';
+import { ContactsPage } from '../pages/contacts/contacts';
+
+
+
+import { Contacts } from '@ionic-native/contacts';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,7 +31,8 @@ import { ResponseInterceptor } from '../interceptors/responseInterceptor';
   declarations: [
     MyApp,
     HomePage,
-    HomeDevicePage
+    HomeDevicePage,
+    ContactsPage
   ],
   imports: [
     BrowserModule,
@@ -40,10 +46,12 @@ import { ResponseInterceptor } from '../interceptors/responseInterceptor';
   entryComponents: [
     MyApp,
     HomePage,
-    HomeDevicePage
+    HomeDevicePage,
+    ContactsPage
   ],
   providers: [
     StatusBar,
+    Contacts,
     SplashScreen,
     ApiAuthService,
     ApiImageService,
