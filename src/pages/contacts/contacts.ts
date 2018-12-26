@@ -47,14 +47,14 @@ export class ContactsPage {
       this.contacts.pickContact()
                    .then((oneContact: Contact) => { 
 
-                      this.showToast(loading,'Bạn đã chọn được 1 danh bạ ' + (oneContact.displayName?oneContact.displayName:'Không biết tên') , 0, 1);
+                      this.showToast(loading,'Bạn đã chọn được 1 danh bạ ' + (oneContact.displayName?oneContact.displayName:oneContact.name.formatted?oneContact.name.formatted:oneContact.name.familyName?oneContact.name.familyName:'Không biết tên') , 0, 1);
 
                       console.log(oneContact);
                       Log.put(oneContact);
 
                       console.log('id: ',oneContact.id, oneContact.rawId);
-                      console.log('Display name: ',oneContact.displayName);
-                      console.log('GivenName: ',oneContact.name.givenName);
+                      console.log('Display name: ',oneContact.displayName?oneContact.displayName:oneContact.name.formatted?oneContact.name.formatted:oneContact.name.familyName?oneContact.name.familyName:'Không biết tên');
+            
                       if (oneContact.phoneNumbers){
                         oneContact.phoneNumbers.forEach((value,index)=>{
                           let obj;
@@ -101,7 +101,7 @@ export class ContactsPage {
       this.contacts.find(['displayName', 'name', 'phoneNumbers', 'emails', 'photos', 'urls', 'organizations', 'addresses', 'birthday', 'ims'], {filter: "", multiple: true})
       .then(data => {
         //loading.dismiss();
-        this.showToast(loading,'Đã đọc xong danh bạ ' + data.length + 'số', 0, 1);
+        this.showToast(loading,'Đã đọc xong danh bạ ' + data.length + ' số', 0, 1);
         
         this.phoneContacts = data;
 

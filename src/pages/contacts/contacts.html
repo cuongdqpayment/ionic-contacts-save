@@ -15,7 +15,7 @@
       <ion-avatar item-start>
         <img src="{{contact.photos?contact.photos[0].value:image_default}}">
       </ion-avatar>
-      <h2>{{contact.displayName?contact.displayName:'Khong co ten'}}</h2>
+      <h2>{{contact.displayName?contact.displayName:contact.name.formatted?contact.name.formatted:contact.name.familyName?contact.name.familyName:'Không biết tên'}}</h2>
       <p>{{contact.phoneNumbers?contact.phoneNumbers[0].value:'...'}}</p>
       <ion-note>{{contact.urls?contact.urls[0].value:'#'}}</ion-note>
     </button>
