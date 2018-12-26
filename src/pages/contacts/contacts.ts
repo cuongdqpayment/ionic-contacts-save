@@ -115,7 +115,7 @@ export class ContactsPage {
 
     }
 
-    showToast(ld:any, msg:string, dur?:number | [0,1,2], pos?:number | [0, 1, 2]){
+    showToast(ld:any, msg:string, dur?:0|1|2, pos?:0|1|2){
 
       if (ld) ld.dismiss();
       this.toastCtrl.create({

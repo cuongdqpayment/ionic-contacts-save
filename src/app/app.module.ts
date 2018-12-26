@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StorageServiceModule } from 'angular-webstorage-service';
 import { ApiStorageService } from '../services/apiStorageService';
+import { ApiLocationService } from '../services/apiLocationService';
 
 import { ApiAuthService } from '../services/apiAuthService';
 import { ApiImageService } from '../services/apiImageService';
@@ -57,6 +58,7 @@ import { ResponseInterceptor } from '../interceptors/responseInterceptor';
     ApiImageService,
     ApiStorageService,
     ApiChattingService,
+    ApiLocationService,
     RequestInterceptor,
     {
       provide: HTTP_INTERCEPTORS,
