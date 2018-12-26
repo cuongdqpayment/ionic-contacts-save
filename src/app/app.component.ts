@@ -26,8 +26,8 @@ export class MyApp {
 
     this.platform.ready().then((readySource) => {
 
-      console.log('Platform ready from', readySource);
-      Log.put('Platform ready from', readySource);
+      console.log('Platform ready from: ', readySource); //cordova (for device) or dom (for web)
+      Log.put('Platform ready from: ', readySource);
 
 
       this.statusBar.styleDefault();
