@@ -5,6 +5,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { HomeDevicePage } from '../pages/home-device/home-device';
+
+import Log from '../assets/log/log-debug';
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -20,7 +24,12 @@ export class MyApp {
 
   ngOnInit() {
 
-    this.platform.ready().then(() => {
+    this.platform.ready().then((readySource) => {
+
+      console.log('Platform ready from', readySource);
+      Log.put('Platform ready from', readySource);
+
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       if (  this.platform.is('mobileweb') 
@@ -29,6 +38,7 @@ export class MyApp {
         MyApp.isWeb = true;
       }
       console.log('MyAPP ngOnInit() Platform: ', this.platform.platforms())
+      Log.put('MyAPP ngOnInit() Platform: ', this.platform.platforms())
       this.ionViewDidLoad();
     });
     
@@ -36,11 +46,13 @@ export class MyApp {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad() ')
+    Log.put('ionViewDidLoad() ')
     if (MyApp.isWeb) this.rootPage = HomePage; else this.rootPage=HomeDevicePage;
   }
   
   ionViewWillLeave() {
     console.log('ionViewWillLeave() ')
+    Log.put('ionViewWillLeave() ')
     
   }
 
