@@ -131,7 +131,7 @@ export class ContactsPage {
         this.showToast(loading, 'Đã đọc xong danh bạ ' + data.length + ' số', 0, 1);
 
         this.phoneContactsOrigin = data;
-
+        this.phoneContacts = this.phoneContactsOrigin;
         //console.log('this.contacts: ', data);
         Log.put('this.contacts: ', data);
       })

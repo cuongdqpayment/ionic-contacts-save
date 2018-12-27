@@ -47,7 +47,7 @@ export class MyApp {
   ionViewDidLoad() {
     console.log('ionViewDidLoad() ')
     Log.put('ionViewDidLoad() ')
-    if (MyApp.isWeb) this.rootPage = HomeDevicePage; else this.rootPage=HomePage;
+    if (MyApp.isWeb) this.rootPage = HomePage; else this.rootPage=HomeDevicePage;
   }
   
   ionViewWillLeave() {
