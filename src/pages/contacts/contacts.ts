@@ -12,7 +12,9 @@ import Log from '../../assets/log/log-debug';
 })
 export class ContactsPage {
   
-  phoneContacts = [];
+  phoneContacts:any = [];
+  isSearch: boolean = false;
+  searchString:string='';
 
   constructor( public navCtrl: NavController,
                private loadingCtrl: LoadingController,
@@ -20,19 +22,38 @@ export class ContactsPage {
                private contacts: Contacts) {}
 
     createContact(){
+
+      let loading = this.loadingCtrl.create({
+        content: 'Đợi lưu vào danh bạ'
+      });
+      loading.present();
+
       let contact: Contact = this.contacts.create();
-      contact.name = new ContactName(null, 'Doan', 'Quoc Cuong');
-      contact.phoneNumbers = [new ContactField('mobile', '0903500888')];
-      contact.save().then(
-        () => {
-          console.log('Contact saved!', contact);
-          Log.put('Contact saved!', contact);
-          },
-        (error: any) => {
-          console.error('Error saving contact.', error);
-          Log.put('Error saving contact.', error);
-        }
-      ); 
+
+      console.log('Contact:',contact);
+      
+      if (contact){
+        
+        contact.name = new ContactName(null, 'Doan', 'Quoc Cuong');
+
+        console.log('Contact name:',contact);
+        
+        contact.phoneNumbers = [new ContactField('mobile', '0903500888')];
+        contact.save().then(
+          () => {
+            console.log('Contact saved!', contact);
+            Log.put('Contact saved!', contact);
+            this.showToast(loading,'Danh bạ đã được lưu trữ thành công!', 0, 1);
+            },
+          (error: any) => {
+            console.error('Error saving contact.', error);
+            Log.put('Error saving contact.', error);
+            this.showToast(loading,'Lỗi lưu trữ danh bạ!');
+          }
+          ); 
+        }else{
+          this.showToast(loading,'Lỗi không được phép tạo danh bạ');
+      }
     }
 
     /** Goi menu he thong de mo danh ba ra
