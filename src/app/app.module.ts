@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { HomeDevicePage } from '../pages/home-device/home-device';
 import { ContactsPage } from '../pages/contacts/contacts';
+import { CountriesPage } from '../pages/countries/countries';
 
 
 
@@ -22,6 +23,7 @@ import { ApiLocationService } from '../services/apiLocationService';
 import { ApiAuthService } from '../services/apiAuthService';
 import { ApiImageService } from '../services/apiImageService';
 import { ApiChattingService } from '../services/apiChattingService';
+import { ApiHttpPublicService } from '../services/apiHttpPublicServices';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from '../interceptors/requestInterceptor';
@@ -33,7 +35,8 @@ import { ResponseInterceptor } from '../interceptors/responseInterceptor';
     MyApp,
     HomePage,
     HomeDevicePage,
-    ContactsPage
+    ContactsPage,
+    CountriesPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { ResponseInterceptor } from '../interceptors/responseInterceptor';
     MyApp,
     HomePage,
     HomeDevicePage,
-    ContactsPage
+    ContactsPage,
+    CountriesPage
   ],
   providers: [
     StatusBar,
@@ -59,6 +63,7 @@ import { ResponseInterceptor } from '../interceptors/responseInterceptor';
     ApiStorageService,
     ApiChattingService,
     ApiLocationService,
+    ApiHttpPublicService,
     RequestInterceptor,
     {
       provide: HTTP_INTERCEPTORS,
