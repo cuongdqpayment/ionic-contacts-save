@@ -8,11 +8,10 @@
         <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-searchbar class="input-item" *ngIf="isSearch" placeholder="Tìm theo tên nước hoặc mã số điện thoại"
+    <ion-searchbar *ngIf="isSearch" placeholder="Tìm theo tên nước hoặc mã số điện thoại"
       [(ngModel)]="searchString"
       [showCancelButton]="shouldShowCancel"
       (ionInput)="onInput($event)"
-      (ionCancel)="onCancel($event)"
       (keyup.enter)="searchEnter()"
       (keyup.esc)="searchEnter()">
     </ion-searchbar>
