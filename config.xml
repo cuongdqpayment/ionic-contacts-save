@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="vn.mobifone.cuongdq.contact" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>ionic-contacts-save</name>
+<widget id="vn.mobifone.cuongdq.contact" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Contact Countries</name>
     <description>Cuongdq app for contacts list</description>
     <author email="cuongdq3500888@gmail.com" href="https://c3.mobifone.vn">Software Mobifone C3 Team</author>
     <content src="index.html" />
@@ -87,4 +87,5 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-contacts" spec="^3.0.1" />
     <engine name="android" spec="7.0.0" />
+    <engine name="ios" spec="4.5.5" />
 </widget>
