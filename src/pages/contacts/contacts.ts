@@ -167,7 +167,13 @@ export class ContactsPage {
       (x.name.familyName ? x.name.familyName : '').toLowerCase().indexOf(this.searchString.toLowerCase())>=0
       ||
       (x.name.givenName ? x.name.givenName : '').toLowerCase().indexOf(this.searchString.toLowerCase())>=0
+      ||
+      (x.phoneNumbers&&x.phoneNumbers.find(y=>y.value.indexOf(this.searchString)>=0))
       ))
+  }
+
+  sendContacts(){
+    
   }
 
   searchEnter() {

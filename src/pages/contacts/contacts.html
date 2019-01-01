@@ -10,6 +10,11 @@
           <ion-icon name="person-add" ios="ios-person-add" md="md-person-add"></ion-icon>
         </button>
     </ion-buttons>
+    <ion-buttons *ngIf="isSearch" right>
+        <button ion-button icon-only color="royal" (click)="sendContacts()">
+          <ion-icon name="person-add" ios="ios-person-add" md="md-person-add"></ion-icon>
+        </button>
+    </ion-buttons>
     <ion-item *ngIf="!isSearch" no-lines class="background-transparent" start>
       <ion-title>CONTACTS</ion-title>
     </ion-item>
